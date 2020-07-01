@@ -7,6 +7,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { TareasComponent } from './componentes/tareas/tareas.component';
 import { NotasComponent } from './componentes/notas/notas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
