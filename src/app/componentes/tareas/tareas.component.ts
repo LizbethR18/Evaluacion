@@ -10,7 +10,6 @@ export class TareasComponent implements OnInit {
   tareas : Array<string>=[];
 
 
-
   constructor(private _builder: FormBuilder) { 
     this.tareasForm=this._builder.group({Tarea:['', Validators.required]})
   }
