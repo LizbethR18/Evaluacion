@@ -8,13 +8,15 @@ import { TareasComponent } from './componentes/tareas/tareas.component';
 import { NotasComponent } from './componentes/notas/notas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule} from '@angular/router';
+import { TareasListComponent } from './componentes/tareas-list/tareas-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TareasComponent,
-    NotasComponent
+    NotasComponent,
+    TareasListComponent
   ],
   imports: [
     BrowserModule,

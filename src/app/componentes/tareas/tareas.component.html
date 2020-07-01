@@ -1,21 +1,26 @@
-<div>
-    <form>
-        <div class="form-row align-items-center">
-            <div>
-            <div class="col-sm-3 my-1">
-              <input type="text" class="form-control" id="inlineFormInputName" placeholder="Descripción de la tarea">
+<div class="container">
+    <form [formGroup]="tareasForm" (ngSubmit)="add(tareasForm.value)">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group  mb-3">
+              <input type="text" class="form-control" formControlName="Tarea" placeholder="Descripción de la tarea" required>
             </div>
-            <div class="col-auto my-1">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary" [disabled]="tareasForm.invalid">Guardar</button>
               </div>
+              <div class="error" *ngIf="tareasForm.get('Tarea').hasError('required') && tareasForm.get('Tarea').touched">
+                *Campo requerido, Introduzca una tarea*
             </div>
         </div>
     </form>
-    <button type="button" class="btn btn-danger">Eliminar Todo</button>
+    <button *ngIf="tareas.length>0" type="button" class="btn btn-danger" (click)="Eliminar()">Eliminar Todo</button>
 </div>
-
-<div class="container">
-    <p>Lizbeth Ricaño Bautista</p>
+<br><br><br>
+<div *ngFor="let tareasn of tareas" class="container">
+<app-tareas-list [TareasList]="[tareasn]"></app-tareas-list>
+</div>
+<br>
+<div class="container" style="color: white;">
+    <p >Lizbeth Ricaño Bautista</p>
     <p>Desarrollo de Aplicaciones Web</p>
     <p>ITIC. Iván Eduardo García Quintero</p>
 </div>
