@@ -1,1 +1,51 @@
-<p>notas works!</p>
+<div class="container">
+    <form [formGroup]="NotasForm" (ngSubmit)="agregarnotas(NotasForm.value)">
+        <div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                   <div class="input-group-text">Título</div> 
+                </div>
+                <input type="text" formControlName="titulo" class="form-control" placeholder="Título de la nota">
+            </div>
+            <div class="error" *ngIf="NotasForm.get('titulo').hasError('required') && NotasForm.get('titulo').touched">
+                *Campo requerido, Ingrese el título de la nota*
+            </div>
+        </div>
+        <div>
+            <br>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Descripción </div>
+                </div>
+                <textarea type="text" formControlName="descripcion" class="form-control" placeholder="Agregar descripción de la nota"></textarea>
+            </div>
+            <div class="error" *ngIf="NotasForm.get('descripcion').hasError('required') && NotasForm.get('descripcion').touched">
+                *Campo requerido, Ingrese la descripción de la nota*
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-primary" [disabled]="NotasForm.invalid">Guardar</button>
+        </div>
+    </form>
+</div>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="bg-light col-2" *ngFor="let item of notas">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header f">{{fecha| date:"dd-MM-yy"}}</div>
+                <div class="card" style="color: white;">
+                  <h5 class="card-title tit">{{item.titulo}}</h5>
+                  <p class="card-text des">{{item.descripcion}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container p">
+    <p>Lizbeth Ricaño Bautista</p>
+    <p>Desarrollo de Aplicaciónes web</p>
+    <p>ITIC. Iván Eduardo García Quintero</p>
+</div>
