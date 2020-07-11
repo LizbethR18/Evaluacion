@@ -15,14 +15,23 @@ export class TareasComponent implements OnInit {
   }
   tareasForm: FormGroup 
   ngOnInit(): void {
+    if(JSON.parse(localStorage.getItem('arreglo'))){
+      this.Mostrar();
+    }
   }
 
   add(values){
     this.tareas.push(values);
+    localStorage.setItem('arreglo', JSON.stringify(this.tareas));
     this.tareasForm.reset();
+    console.log(this.tareas);
   }
   Eliminar(){
     this.tareas=[];
+  }
+
+  Mostrar(){
+    this.tareas = JSON.parse(localStorage.getItem('arreglo'));
   }
 
 }
