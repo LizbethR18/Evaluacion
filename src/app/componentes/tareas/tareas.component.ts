@@ -28,6 +28,7 @@ export class TareasComponent implements OnInit {
   }
   Eliminar(){
     this.tareas=[];
+    localStorage.removeItem('arreglo');
   }
 
   Mostrar(){

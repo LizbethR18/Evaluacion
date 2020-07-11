@@ -17,12 +17,20 @@ export class NotasComponent implements OnInit {
    }
   NotasForm:FormGroup
   ngOnInit(): void {
+    if(JSON.parse(localStorage.getItem('arreglo'))){
+      this.MostrarN();
+    }
   }
   agregarnotas(values){
     this.fecha=new Date;
     this.notas.push(values);
+    localStorage.setItem('arreglo', JSON.stringify(this.notas));
     this.NotasForm.reset();
     console.log(this.notas);
+  }
+
+  MostrarN(){
+    this.notas = JSON.parse(localStorage.getItem('arreglo'));
   }
 
 }
