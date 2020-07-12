@@ -30,6 +30,11 @@ export class NotasComponent implements OnInit {
     console.log(this.notas);
   }
 
+  Eliminar(){
+    this.notas=[];
+    localStorage.removeItem('arr');
+  }
+
   MostrarN(){
     this.notas = JSON.parse(localStorage.getItem('arr'));
   }

@@ -26,6 +26,9 @@
         <br>
         <div>
             <button type="submit" class="btn btn-primary" [disabled]="NotasForm.invalid">Guardar</button>
+            <br><br>
+            <button *ngIf="notas.length>0" type="button" class="btn btn-danger" 
+                (click)="Eliminar()">Eliminar Todo</button>
         </div>
     </form>
 </div>
